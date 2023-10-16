@@ -31,10 +31,10 @@ provider "kubernetes" {
 }
 
 locals {
-  name                   = "ex-${replace(basename(path.cwd), "_", "-")}"
+  name                   = "ato-2023"
   environment            = "control-plane"
   region                 = "us-west-2"
-  cluster_version        = "1.27"
+  cluster_version        = "1.28"
   gitops_addons_url      = "${var.gitops_addons_org}/${var.gitops_addons_repo}"
   gitops_addons_basepath = var.gitops_addons_basepath
   gitops_addons_path     = var.gitops_addons_path
@@ -71,10 +71,10 @@ locals {
     #enable_argo_events                          = true
     #enable_argo_workflows                        = true
     #enable_cluster_proportional_autoscaler       = true
-    #enable_gatekeeper                            = true
+    enable_gatekeeper                            = true
     #enable_gpu_operator                          = true
     #enable_ingress_nginx                         = true
-    #enable_kyverno                               = true
+    enable_kyverno                               = true
     #enable_kube_prometheus_stack                 = true
     #enable_prometheus_adapter                    = true
     #enable_secrets_store_csi_driver              = true
