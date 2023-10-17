@@ -105,7 +105,7 @@ locals {
 
   argocd_apps = {
     addons    = file("${path.module}/bootstrap/addons.yaml")
-    workloads = file("${path.module}/bootstrap/workloads.yaml")
+    //workloads = file("${path.module}/bootstrap/workloads.yaml")
   }
 
   vpc_cidr = "10.0.0.0/16"

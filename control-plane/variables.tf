@@ -11,7 +11,7 @@ variable "gitops_addons_repo" {
 variable "gitops_addons_basepath" {
   description = "Git repository base path for addons"
   type        = string
-  default     = "gitops/"
+  default     = "gitops/addons/"
 }
 variable "gitops_addons_path" {
   description = "Git repository path for addons"
