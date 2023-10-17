@@ -19,7 +19,6 @@
 - https://github.com/yannh/kubeconform
 - https://github.com/kubernetes/enhancements/tree/master/keps/sig-api-machinery/2876-crd-validation-expression-language
 - https://kubernetes.io/blog/2022/09/23/crd-validation-rules-beta/
-- https://kubernetes.io/blog/2022/09/23/crd-validation-rules-beta/
 - https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/#validation-rules
 - https://github.com/kubernetes/enhancements/tree/master/keps/sig-api-machinery/3488-cel-admission-control
 - https://aws.amazon.com/blogs/mt/using-opa-to-create-aws-config-rules/
