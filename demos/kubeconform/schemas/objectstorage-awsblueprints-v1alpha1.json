@@ -1,0 +1,276 @@
+{
+  "properties": {
+    "apiVersion": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "spec": {
+      "description": "ObjectStorageSpec defines the desired state of ObjectStorage",
+      "properties": {
+        "compositeDeletePolicy": {
+          "enum": [
+            "Background",
+            "Foreground"
+          ],
+          "type": "string"
+        },
+        "compositionRef": {
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "compositionRevisionRef": {
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "compositionRevisionSelector": {
+          "properties": {
+            "matchLabels": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "matchLabels"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "compositionSelector": {
+          "properties": {
+            "matchLabels": {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "type": "object"
+            }
+          },
+          "required": [
+            "matchLabels"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "compositionUpdatePolicy": {
+          "enum": [
+            "Automatic",
+            "Manual"
+          ],
+          "type": "string"
+        },
+        "publishConnectionDetailsTo": {
+          "properties": {
+            "configRef": {
+              "default": {
+                "name": "default"
+              },
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "additionalProperties": false
+            },
+            "metadata": {
+              "properties": {
+                "annotations": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object"
+                },
+                "labels": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object"
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "additionalProperties": false
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "resourceConfig": {
+          "description": "ResourceConfig defines general properties of this AWS resource.",
+          "properties": {
+            "deletionPolicy": {
+              "description": "Defaults to Delete",
+              "enum": [
+                "Delete",
+                "Orphan"
+              ],
+              "type": "string"
+            },
+            "name": {
+              "description": "Set the name of this resource in AWS to the value provided by this field.",
+              "type": "string"
+            },
+            "providerConfigName": {
+              "type": "string"
+            },
+            "region": {
+              "type": "string"
+            },
+            "tags": {
+              "items": {
+                "properties": {
+                  "key": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "key",
+                  "value"
+                ],
+                "type": "object",
+                "additionalProperties": false
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "providerConfigName",
+            "region",
+            "tags"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "resourceRef": {
+          "properties": {
+            "apiVersion": {
+              "type": "string"
+            },
+            "kind": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "apiVersion",
+            "kind",
+            "name"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "writeConnectionSecretToRef": {
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "resourceConfig"
+      ],
+      "type": "object",
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "ObjectStorageStatus defines the observed state of ObjectStorage",
+      "properties": {
+        "bucketArn": {
+          "type": "string"
+        },
+        "bucketName": {
+          "type": "string"
+        },
+        "conditions": {
+          "description": "Conditions of the resource.",
+          "items": {
+            "properties": {
+              "lastTransitionTime": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "lastTransitionTime",
+              "reason",
+              "status",
+              "type"
+            ],
+            "type": "object",
+            "additionalProperties": false
+          },
+          "type": "array"
+        },
+        "connectionDetails": {
+          "properties": {
+            "lastPublishedTime": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "type": "object",
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "spec"
+  ],
+  "type": "object"
+}

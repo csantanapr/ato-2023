@@ -1,0 +1,1 @@
+ kubeconform -strict -summary  -schema-location ./schemas/bucket-s3-v1beta1.json  -skip CustomResourceDefinition <  ../../crossplane-on-eks/examples/upbound-aws-provider/managed-resources/s3/bucket.yaml

@@ -1,0 +1,26 @@
+...
+openAPIV3Schema:
+  type: object
+  properties:
+    spec:
+      type: object
+      x-kubernetes-validations:
+        - rule: "self.minReplicas <= self.replicas"
+          message: "replicas should be greater than or equal to minReplicas."
+        - rule: "self.replicas <= self.maxReplicas"
+          message: "replicas should be smaller than or equal to maxReplicas."
+      properties:
+
+        minReplicas:
+          type: integer
+        replicas:
+          type: integer
+        maxReplicas:
+          type: integer
+      required:
+        - minReplicas
+        - replicas
+        - maxReplicas
+...
+
+
