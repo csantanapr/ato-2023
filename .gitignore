@@ -43,3 +43,5 @@ go.mod
 go.sum
 
 .DS_Store
+
+crossplane-on-eks
